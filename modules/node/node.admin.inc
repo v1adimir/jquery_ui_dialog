@@ -182,7 +182,7 @@ function node_build_filter_query() {
       case 'category':
         $table = "tn$index";
         $where[] = "$table.tid = %d";
-        $join .= "INNER JOIN {term_node} $table ON n.nid = $table.nid ";
+        $join .= "INNER JOIN {term_node} $table ON n.vid = $table.vid ";
         break;
       case 'type':
         $where[] = "n.type = '%s'";
