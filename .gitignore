@@ -9,3 +9,4 @@ sites/*.de
 sites/*.org
 sites/*.com
 sites/*.net
+tmp/*
