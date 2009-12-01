@@ -311,9 +311,15 @@ html.js fieldset.collapsed {
 html.js fieldset.collapsed * {
   display: none;
 }
+
 html.js fieldset.collapsed legend {
   display: block;
 }
+
+html.js fieldset.collapsed legend * {
+  display: block;
+}
+
 html.js fieldset.collapsible legend a {
   padding-left: 15px; /* LTR */
   background: url(../../misc/menu-expanded.png) 5px 75% no-repeat; /* LTR */
