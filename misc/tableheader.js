@@ -1,11 +1,11 @@
 // $Id: tableheader.js,v 1.16.2.2 2009/03/30 12:48:09 goba Exp $
-/*
+
 Drupal.tableHeaderDoScroll = function() {
   if (typeof(Drupal.tableHeaderOnScroll)=='function') {
     Drupal.tableHeaderOnScroll();
   }
 };
-*/
+
 Drupal.behaviors.tableHeader = function (context) {
   // This breaks in anything less than IE 7. Prevent it from running.
   if (jQuery.browser.msie && parseInt(jQuery.browser.version, 10) < 7) {
