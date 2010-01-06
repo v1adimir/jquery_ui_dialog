@@ -101,6 +101,7 @@ DirectoryIndex index.php
   # RewriteBase /
 
   # Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
+  RewriteRule ^doc/drupaliki-produktbeschreibung$ http://drupal-wiki.com [L,R=301]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
