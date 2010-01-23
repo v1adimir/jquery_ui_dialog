@@ -42,8 +42,7 @@ Drupal.jqui_dialog.open = function(c_options) {
   // Setting self.container
   self.create(self.options);
   // Open the dialog offscreen where we can set its size, etc.
-  self.container.dialog('open');
-  
+  self.container.dialog('open');  
   if(self.options.url != '') { 
       self.loadIframe(self.iframe.get(0), self.options);
   }
@@ -77,7 +76,7 @@ Drupal.jqui_dialog.create = function(options) {
   self.iframe = self.container.find('#jq-ui-dialog-iframe');
   // Open the jQuery UI dialog offscreen.
   self.container.dialog(options);
-  // We need this for our theme.
+  // We need this for our theme to be in a namespace
   $('.jquery_ui_dialog-dialog').wrap('<div class="jquery_ui_dialog-dialog-wrapper"/>');
 };
 
