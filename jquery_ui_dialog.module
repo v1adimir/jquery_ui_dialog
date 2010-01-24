@@ -22,7 +22,6 @@ function jquery_ui_dialog_theme_registry_alter(&$theme_registry) {
   }
 }
 
-
 function jquery_ui_dialog_child_js() {
   $m = drupal_get_path('module', 'jquery_ui_dialog');
   drupal_add_js($m .'/js/child.js');
