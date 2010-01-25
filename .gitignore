@@ -1,0 +1,12 @@
+backup_system
+sites/all/modules/
+sites/all/themes
+sites/all/libraries
+sites/all/files
+sites/default/files
+sites/default/settings.php
+sites/*.de
+sites/*.org
+sites/*.com
+sites/*.net
+tmp/*
