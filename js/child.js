@@ -1,4 +1,4 @@
-// $Id: child.js,v 1.1.2.13 2010/01/01 20:31:01 markuspetrux Exp $
+// $Id:$
 
 (function ($) {
 Drupal.jqui_dialogChild = Drupal.jqui_dialogChild || {

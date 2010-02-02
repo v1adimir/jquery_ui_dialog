@@ -1,4 +1,9 @@
 <?php
+// $Id$
+
+# Copyright (c) 2010 Impressive.media
+# Author: Eugen Mayer
+
 function jquery_ui_dialog_parent_js() {
   static $processed;
   // Make sure external resources are not included more than once.
@@ -55,4 +60,3 @@ function jquery_ui_dialog_preprocess_page(&$variables) {
     array_unshift($variables['template_files'], 'jquery_ui_dialog-page');
   }
 }
-?>

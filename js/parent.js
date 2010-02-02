@@ -1,4 +1,4 @@
-// $Id: parent.js,v 1.1.2.22 2010/01/02 06:07:14 markuspetrux Exp $
+// $Id:$
 
 (function ($) {
   Drupal.jqui_dialog = Drupal.jqui_dialog || {options: {},chilDocumentSize:{}, container :  undefined};
