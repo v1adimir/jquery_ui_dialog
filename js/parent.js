@@ -69,7 +69,7 @@ Drupal.jqui_dialog.create = function(options) {
   // Note: We use scrolling="yes" for IE as a workaround to yet another IE bug
   // where the horizontal scrollbar is always rendered, no matter how wide the
   // iframe element is defined.
-  var container = $('<div id="jq-ui-dialog-container"/>').append('<iframe id="jq-ui-dialog-iframe" name="jq-ui-dialog-iframe"'+ ($.browser.msie ? ' scrolling="yes"' : '') +'/>');    
+  var container = $('<div id="jq-ui-dialog-container"/>').append('<iframe frameborder="0" id="jq-ui-dialog-iframe" name="jq-ui-dialog-iframe"'+ ($.browser.msie ? ' scrolling="yes"' : '') +'/>');    
 
   $('body').append(container);
   self.container = $('#jq-ui-dialog-container');
