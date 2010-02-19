@@ -12,6 +12,8 @@
 <title><?php print (!empty($title) ? strip_tags($title) : $head_title); ?></title>
 <?php print $styles; ?>
 <?php print $scripts; ?>
+<link href="<?php print base_path().drupal_get_path('module','jquery_ui_dialog')?>/css/jquery_ui_dialog_child.css" media="all" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <div class="dialog-page-wrapper">
