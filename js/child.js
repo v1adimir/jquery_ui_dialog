@@ -25,11 +25,9 @@ Drupal.jqui_dialogChild.attach = function(context) {
   if (!self.processed) {
     self.processed = true;
     
-    setTimeout(function() {
-      self.pJQui_dialog.chilDocumentSize  = {width: $(window).width(), height: $(window).height()};
-      self.pJQui_dialog.childLoaded(window);
-    },100);
-    
+	Drupal.jqui_dialogChild.recheckSize();
+
+       
   }
   else {  
     //Drupal.jqui_dialogChild.recheckSize();
@@ -40,16 +38,20 @@ Drupal.jqui_dialogChild.recheckSize = function() {
   self.pJQui_dialog = parent.Drupal.jqui_dialog;
   // we need this timeout otherwise the DOM might not be loaded fully yet. This would result in wrong
   // calculation of width / height
+
   setTimeout(function() {    
-    self.pJQui_dialog.chilDocumentSize  = {width: $(window).width(), height: $('body').height()+40}; 
+    var height = $('body').outerHeight();
+    self.pJQui_dialog.chilDocumentSize  = {width: $(window).width(), height: height+30}; 
     self.pJQui_dialog.resize();
   },100);
     
   //}
 };
 
-$(document).ready(function() {
-  $('body').ajaxComplete( Drupal.jqui_dialogChild.recheckSize );
+$(document).ready( function() {
+  $('body').ajaxComplete( function() { 
+	Drupal.jqui_dialogChild.recheckSize();
+  });
 });
 
 /**
