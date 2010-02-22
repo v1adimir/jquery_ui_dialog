@@ -122,14 +122,17 @@ Drupal.jqui_dialog.resize = function() {
   var self = this, documentSize = self.chilDocumentSize;
 
   // Compute frame and dialog size based on document size.
-  var maxSize = self.sanitizeSize({}), titleBarHeight = $('.ui-dialog-titlebar').outerHeight(true);
+  var maxSize = self.sanitizeSize({});
+  var titleBarHeight = $('.ui-dialog-titlebar').outerHeight(true);
   // if we have a button pane
   var buttonBarHeight = 0;
   if(self.options.buttons != undefined) {
     buttonBarHeight = $('.ui-dialog-buttonpane').outerHeight(true);;
   }
+  
   var paddingHeight = 12, paddingWidth = 26;
-  var frameSize = self.sanitizeSize(documentSize), dialogSize = $.extend({}, frameSize);  
+  var frameSize = self.sanitizeSize(documentSize);
+  var dialogSize = $.extend({}, frameSize);  
   
   if ((dialogSize.height + titleBarHeight + buttonBarHeight) <= maxSize.height) {
     dialogSize.height += titleBarHeight + buttonBarHeight + paddingHeight;
