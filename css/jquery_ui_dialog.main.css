@@ -4,6 +4,10 @@
   margin:0px;
 }
 
+#jq-ui-dialog-iframe html {
+  height:100%;	
+}
+
 .jquery_ui_dialog-dialog-wrapper {
   z-index:1000;
 }
