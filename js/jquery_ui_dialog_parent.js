@@ -93,7 +93,13 @@ Drupal.jqui_dialog.loadIframe = function(iframe,options) {
   }  
   
   if(options.method == 'post') {
-    $(doc).load(options.url.options.data); 
+    $(doc).post(
+        options.url,
+        options.data, 
+        function(data) {
+          $(doc).html(data);
+        }  
+    ); 
     return;
   }
   //else
