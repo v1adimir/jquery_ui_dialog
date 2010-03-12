@@ -1,37 +1,21 @@
 <?php
+// Include the API methods
+require_once('jquery_ui_dialog.api.inc');
 // $Id$
 
 # Copyright (c) 2010 Impressive.media
 # Author: Eugen Mayer
-
-function jquery_ui_dialog_parent_js() {
-  static $processed;
-  // Make sure external resources are not included more than once.
-  if ($processed === true) {
-    return;
-  }
-  $processed = TRUE;
-
-  jquery_ui_add(array('ui.dialog', 'ui.draggable'));
-  $m = drupal_get_path('module', 'jquery_ui_dialog');
-  drupal_add_css($m.'/css/jquery_ui_dialog-dialog/jquery_ui_dialog.css');
-  drupal_add_css($m .'/css/jquery_ui_dialog.main.css');
-  drupal_add_js($m .'/js/jquery_ui_dialog_parent.js');
-}
-
+/*
+ * This helper makes it possible to force dialog iframe, so the child call,
+ * to use a different page.tpl.php, which does not include all thos regions, headers
+ * But only the css / js files and a clean layout (no layout)
+ */
 function jquery_ui_dialog_theme_registry_alter(&$theme_registry) {
   if (isset($theme_registry['page']) && isset($theme_registry['page']['theme paths'])) {
     $module_path = drupal_get_path('module', 'jquery_ui_dialog');
     array_unshift($theme_registry['page']['theme paths'], $module_path);
     array_unshift($theme_registry['page']['preprocess functions'], 'jquery_ui_dialog_pre_preprocess_page');
   }
-}
-
-function jquery_ui_dialog_child_js() {
-  $m = drupal_get_path('module', 'jquery_ui_dialog');
-  drupal_add_js($m .'/js/jquery_ui_dialog_child.js');
-  module_invoke_all('jquery_ui_child_loading');
-  $GLOBALS['jquery_ui_dialog_page_template'] = TRUE;
 }
 
 /**
