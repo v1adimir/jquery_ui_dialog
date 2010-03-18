@@ -1,13 +1,32 @@
 <?php
-// Include the API methods
-require_once('jquery_ui_dialog.api.inc');
 // $Id$
-
 # Copyright (c) 2010 Impressive.media
 # Author: Eugen Mayer
+// Include the API methods
+require_once('jquery_ui_dialog.api.inc');
+
+/*
+ * Implementing hook_menu()
+ */
+function jquery_ui_dialog_menu() {
+  $items = array();
+ 
+  $items['admin/settings/jquery_ui_dialog'] = array (
+    'type' => MENU_NORMAL_ITEM,
+    'title' => 'JQuery UI Dialog',
+    'description' => 'Configuration options for the JQuery UI Dialog module',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('jquery_ui_dialog_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'jquery_ui_dialog.admin.inc',
+   );
+
+  return $items;
+}
+
 /*
  * This helper makes it possible to force dialog iframe, so the child call,
- * to use a different page.tpl.php, which does not include all thos regions, headers
+ * to use a different page.tpl.php, which does not include all those regions, headers
  * But only the css / js files and a clean layout (no layout)
  */
 function jquery_ui_dialog_theme_registry_alter(&$theme_registry) {
@@ -43,5 +62,10 @@ function jquery_ui_dialog_preprocess_page(&$variables) {
       $variables['template_files'] = array();
     }
     array_unshift($variables['template_files'], 'jquery_ui_dialog-page');
+
+    if(variable_get('jquery_ui_dialog_default_css', true)) {
+      $m = drupal_get_path('module','jquery_ui_dialog');
+      drupal_add_css($m.'/css/jquery_ui_dialog_default.css');
+    }
   }
 }
