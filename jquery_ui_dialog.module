@@ -62,7 +62,7 @@ function jquery_ui_dialog_preprocess_page(&$variables) {
       $variables['template_files'] = array();
     }
     array_unshift($variables['template_files'], 'jquery_ui_dialog-page');
-
+    
     if(variable_get('jquery_ui_dialog_default_css', true)) {
       $m = drupal_get_path('module','jquery_ui_dialog');
       drupal_add_css($m.'/css/jquery_ui_dialog.default.css');

@@ -36,7 +36,7 @@ function jquery_ui_dialog_parent_js() {
  */
 function jquery_ui_dialog_child_js() {
   $m = drupal_get_path('module', 'jquery_ui_dialog');
-  drupal_add_js($m .'/js/jquery_ui_dialog.child.js');
+  drupal_add_js($m .'/js/jquery_ui_dialog_child.js');
   module_invoke_all('jquery_ui_dialog_child_loading');
   $GLOBALS['jquery_ui_dialog_page_template'] = TRUE;
 }
