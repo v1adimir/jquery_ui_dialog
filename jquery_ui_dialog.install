@@ -1,6 +1,7 @@
 <?php
 // $Id$
-
+# Copyright (c) 2010 Impressive.media
+# Author: Eugen Mayer
 /**
  * @file
  * Installation file for jQuery UI dialog module.
@@ -11,7 +12,7 @@
  */
 function jquery_ui_dialog_install() {
   // use higher weights then jquery_ui
-  db_query("UPDATE {system} SET weight = 1 WHERE name = 'jquery_ui_dialog'");  
+  db_query("UPDATE {system} SET weight = 1 WHERE name = 'jquery_ui_dialog'");
 }
 
 function jquery_ui_dialog_update_6010() {

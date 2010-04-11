@@ -1,4 +1,8 @@
 <?php
+// $Id$
+# Copyright (c) 2010 Impressive.media
+# Author: Eugen Mayer
+
 /*
  * Part of the jquery_ui_dialog API.
  * Call this method if you are going to open a jquer ui dialog. It includes needed
@@ -33,9 +37,11 @@ function jquery_ui_dialog_parent_js() {
 function jquery_ui_dialog_child_js() {
   $m = drupal_get_path('module', 'jquery_ui_dialog');
   drupal_add_js($m .'/js/jquery_ui_dialog_child.js');
-  module_invoke_all('jquery_ui_child_loading');
+  module_invoke_all('jquery_ui_dialog_child_loading');
   $GLOBALS['jquery_ui_dialog_page_template'] = TRUE;
 }
 
-
-
+function jquery_ui_dialog_jquery_ui_dialog_child_loading() {
+  module_invoke('admin', 'suppress');
+  module_invoke('admin_menu', 'suppress');
+}
