@@ -40,3 +40,8 @@ function jquery_ui_dialog_child_js() {
   module_invoke_all('jquery_ui_dialog_child_loading');
   $GLOBALS['jquery_ui_dialog_page_template'] = TRUE;
 }
+
+function jquery_ui_dialog_jquery_ui_dialog_child_loading() {
+  module_invoke('admin', 'suppress');
+  module_invoke('admin_menu', 'suppress');
+}
