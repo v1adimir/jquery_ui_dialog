@@ -27,7 +27,6 @@
       self.processed = true;
       Drupal.jqui_dialogChild.recheckSize();
     }
-
   };
 
   Drupal.jqui_dialogChild.recheckSize = function () {
