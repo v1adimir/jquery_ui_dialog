@@ -11,7 +11,7 @@
    *   Properties of the modal frame to open:
    *   - url : the URL of the page to open. If not provided, you have to handle the loading yourself
    *   - method(get) : What method should use to load the url (get/post)
-   *   - data : Post DATA you can pass, if you use method=post  
+   *   - data : Post DATA you can pass, if you use method=post
    *   - for all the other options please refer the jquery ui dialog documentation http://jqueryui.com/demos/dialog/#options
    */
   Drupal.jqui_dialog.open = function (c_options) {
@@ -35,6 +35,7 @@
       closeOnEscape: true,
       resizable: false,
       draggable: false,
+      autoresize: true,
       close: dialogClose,
       dialogClass: 'jquery_ui_dialog-dialog',
       title: Drupal.t('Loading...')
@@ -54,14 +55,14 @@
       self.container.dialog('option', {
         width: self.options.width + 26
       });
-      self.iframe.width(self.options.width);
+      self.iframe.width(self.options.width-10);
     }
 
     if (self.options.height != undefined) {
       self.container.dialog('option', {
         width: self.options.width + 12
       });
-      self.iframe.height(self.options.height);
+      self.iframe.height(self.options.height-100);
     }
 
     return true;
@@ -115,7 +116,7 @@
     var $iFrameWindow = iFrameWindow.jQuery;
     var $iFrameDocument = $iFrameWindow(iFrameWindow.document);
 
-    //$iFrameDocument.attr('tabIndex', -1).css('outline', 0);  
+    //$iFrameDocument.attr('tabIndex', -1).css('outline', 0);
     $('.ui-dialog-title').html($iFrameDocument.attr('title'));
     self.resize();
   };
@@ -131,7 +132,9 @@
   Drupal.jqui_dialog.resize = function () {
     var self = this,
       documentSize = self.chilDocumentSize;
-
+    if(self.options.autoresize === false) {
+      return;
+    }
     // Compute frame and dialog size based on document size.
     var maxSize = self.sanitizeSize({});
     var titleBarHeight = $('.ui-dialog-titlebar').outerHeight(true);
