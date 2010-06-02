@@ -34,7 +34,10 @@ function jquery_ui_dialog_parent_js() {
  * In general this adds the needed js tool to connect to the parent communitcation tunnel
  * And handle all the auto-resize events.
  */
-function jquery_ui_dialog_child_js() {
+function jquery_ui_dialog_child_js($options = array()) {
+  if(count($options) > 0) {    
+    drupal_add_js(array('jqui_dialogChild' => $options), 'setting');
+  }
   $m = drupal_get_path('module', 'jquery_ui_dialog');
   drupal_add_js($m .'/js/jquery_ui_dialog_child.js');
   module_invoke_all('jquery_ui_dialog_child_loading');

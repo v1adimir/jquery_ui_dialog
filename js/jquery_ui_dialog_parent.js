@@ -273,5 +273,15 @@
 
   Drupal.jqui_dialog.close = function () {
     $('#jq-ui-dialog-iframe').dialog('close');
-  }
+  };
+
+  Drupal.jqui_dialog.set_childWidth = function (w) {   
+    self= this;
+    self.options.width = w;
+    self.container.dialog('option', {
+        width: self.options.width + 26
+    });
+    self.iframe.width(self.options.width-10);
+    
+  };
 })(jQuery);

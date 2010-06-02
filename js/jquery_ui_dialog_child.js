@@ -25,6 +25,7 @@
     // Make sure this behavior is not processed more than once.
     if (!self.processed) {
       self.processed = true;
+      Drupal.jqui_dialogChild.handleOptions(settings);
       Drupal.jqui_dialogChild.recheckSize();
     }
   };
@@ -43,6 +44,15 @@
     }, 100);
   };
 
+  Drupal.jqui_dialogChild.handleOptions = function(opt) {
+    // Shortcuts to parent objects.
+    self.$pWindow = parent.jQuery(parent);
+    self.pJQui_dialog = parent.Drupal.jqui_dialog;
+
+    if(opt.width != undefined) {     
+     self.pJQui_dialog.set_childWidth(opt.width);
+    }
+  };
   /**
    * Check if the given variable is an object.
    */
