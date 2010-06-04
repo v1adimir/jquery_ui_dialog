@@ -53,13 +53,13 @@
 
     if ('width' in self.options) {
       self.container.dialog('option', {
-        width: self.options.width + 26
+        width: self.options.width
       });
-      self.iframe.width(self.options.width-10);
+      self.iframe.width(self.options.width-25);
     }
     if ('height' in self.options) {
       self.container.dialog('option', {
-        width: self.options.width + 12
+        height: self.options.height
       });
       self.iframe.height(self.options.height-100);
     }
