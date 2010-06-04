@@ -51,14 +51,13 @@
       self.loadIframe(self.iframe.get(0), self.options);
     }
 
-    if (self.options.width != undefined) {
+    if ('width' in self.options) {
       self.container.dialog('option', {
         width: self.options.width + 26
       });
       self.iframe.width(self.options.width-10);
     }
-
-    if (self.options.height != undefined) {
+    if ('height' in self.options) {
       self.container.dialog('option', {
         width: self.options.width + 12
       });
@@ -96,7 +95,7 @@
     // Get the document object of the iframe window.
     // @see http://xkr.us/articles/dom/iframe-document/
     var doc = (iframe.contentWindow || iframe.contentDocument);
-    if (doc.document) {
+    if ('document' in doc) {
       doc = doc.document;
     }
 
@@ -130,8 +129,8 @@
    * - The child window resize handler (when the child window is resized).
    */
   Drupal.jqui_dialog.resize = function () {
-    var self = this,
-      documentSize = self.chilDocumentSize;
+    var self = this;
+    var documentSize = self.chilDocumentSize;
     if(self.options.autoresize === false) {
       return;
     }
@@ -140,12 +139,12 @@
     var titleBarHeight = $('.ui-dialog-titlebar').outerHeight(true);
     // if we have a button pane
     var buttonBarHeight = 0;
-    if (self.options.buttons != undefined) {
+    if ('buttons' in self.options) {
       buttonBarHeight = $('.ui-dialog-buttonpane').outerHeight(true);;
     }
 
-    var paddingHeight = 12,
-      paddingWidth = 26;
+    var paddingHeight = 12;
+    var paddingWidth = 26;
     var frameSize = self.sanitizeSize(documentSize);
     var dialogSize = $.extend({}, frameSize);
 
@@ -237,6 +236,7 @@
   };
 
   Drupal.jqui_dialog.fixPosition = function ($element, isOpen) {
+    var self = this;
     var $window = $(window);
     if ($.browser.msie && parseInt($.browser.version) <= 6) {
       // IE6 does not support position:'fixed'.
@@ -275,13 +275,12 @@
     $('#jq-ui-dialog-iframe').dialog('close');
   };
 
-  Drupal.jqui_dialog.set_childWidth = function (w) {   
-    self= this;
+  Drupal.jqui_dialog.set_childWidth = function (w) {
+    var self = this;
     self.options.width = w;
     self.container.dialog('option', {
         width: self.options.width + 26
     });
     self.iframe.width(self.options.width-10);
-    
   };
 })(jQuery);

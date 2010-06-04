@@ -31,6 +31,7 @@
   };
 
   Drupal.jqui_dialogChild.recheckSize = function () {
+    var self = Drupal.jqui_dialogChild;
     self.pJQui_dialog = parent.Drupal.jqui_dialog;
     // we need this timeout otherwise the DOM might not be loaded fully yet. This would result in wrong
     // calculation of width / height
@@ -44,20 +45,21 @@
     }, 100);
   };
 
+  /**
+  * Handle options
+  */
   Drupal.jqui_dialogChild.handleOptions = function(opt) {
-    // Shortcuts to parent objects.
-    self.$pWindow = parent.jQuery(parent);
-    self.pJQui_dialog = parent.Drupal.jqui_dialog;
-
-    if(opt.width != undefined) {     
+    var self = Drupal.jqui_dialogChild;
+    if('width' in opt) {
      self.pJQui_dialog.set_childWidth(opt.width);
     }
   };
+
   /**
    * Check if the given variable is an object.
    */
   Drupal.jqui_dialogChild.isObject = function (something) {
-    return (something !== null && typeof something === 'object');
+    return (something != null && typeof something === 'object');
   };
 
   $(document).ready(function () {
