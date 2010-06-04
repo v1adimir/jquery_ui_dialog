@@ -53,9 +53,9 @@
 
     if ('width' in self.options) {
       self.container.dialog('option', {
-        width: self.options.width
+        width: self.options.width+25
       });
-      self.iframe.width(self.options.width-25);
+      self.iframe.width(self.options.width);
     }
     if ('height' in self.options) {
       self.container.dialog('option', {
