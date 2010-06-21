@@ -22,7 +22,7 @@ function jquery_ui_dialog_parent_js() {
   // Add the css files for the jquery ui theme
   drupal_add_css("$m/css/jquery_ui_dialog-dialog/jquery_ui_dialog.css");
   // Add the css files we need for the dialog in general
-  drupal_add_css("$m/css/jquery_ui_dialog.main.css");
+  drupal_add_css("$m/css/jquery_ui_dialog.main.css");  
   // Thats what handles the js tunnel to the client for communitcation
   drupal_add_js("$m/js/jquery_ui_dialog_parent.js");
 }
@@ -40,6 +40,7 @@ function jquery_ui_dialog_child_js($options = array()) {
   }
   $m = drupal_get_path('module', 'jquery_ui_dialog');
   drupal_add_js($m .'/js/jquery_ui_dialog_child.js');
+  drupal_add_css("$m/css/jquery_ui_dialog.default.css");
   module_invoke_all('jquery_ui_dialog_child_loading');
   $GLOBALS['jquery_ui_dialog_page_template'] = TRUE;
 }
