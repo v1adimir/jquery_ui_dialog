@@ -14,7 +14,7 @@
 <?php print $scripts; ?>
 <link href="<?php print base_path().drupal_get_path('module','jquery_ui_dialog')?>/css/jquery_ui_dialog.child.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
-<body id="jqueryui_dialog" class="clear-block">
+<body id="jquery_ui_dialog" class="clear-block">
 <div class="dialog-page-wrapper">
   <div class="dialog-page-container">
     <div class="dialog-page-content">
