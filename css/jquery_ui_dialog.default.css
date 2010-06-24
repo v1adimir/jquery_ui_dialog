@@ -1,4 +1,4 @@
-body#jquery_ui_dialog {
+html#jquery_ui_dialog, body#jquery_ui_dialog {
   background-color:white;
   background:none;
 }
