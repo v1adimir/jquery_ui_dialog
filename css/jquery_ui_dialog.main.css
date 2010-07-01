@@ -9,7 +9,11 @@
 }
 
 .jquery_ui_dialog-dialog-wrapper {
-	z-index:10001;
+	z-index:10011;
+}
+
+.jquery_ui_dialog-dialog-wrapper .jquery_ui_dialog-dialog{
+  z-index:10011 !important;
 }
 
 .ui-widget-overlay {
