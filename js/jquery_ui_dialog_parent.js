@@ -36,6 +36,7 @@
       resizable: false,
       draggable: false,
       autoresize: true,
+      namespace: 'jquery_ui_dialog_default_ns',
       close: dialogClose,
       dialogClass: 'jquery_ui_dialog-dialog',
       title: Drupal.t('Loading...')
@@ -114,10 +115,8 @@
     var self = this;
     var $iFrameWindow = iFrameWindow.jQuery;
     var $iFrameDocument = $iFrameWindow(iFrameWindow.document);
-
-    //$iFrameDocument.attr('tabIndex', -1).css('outline', 0);
-    $('.ui-dialog-title').html($iFrameDocument.attr('title'));
-    self.resize();
+    $('body',$iFrameDocument).addClass(self.options.namespace);
+    $('.jquery_ui_dialog-dialog-wrapper .ui-dialog').addClass(self.options.namespace+'-dialog');
   };
 
   /**

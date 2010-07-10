@@ -21,6 +21,7 @@
     self.pJQui_dialog = parent.Drupal.jqui_dialog;
 
     // Update title
+    
     self.pJQui_dialog.container.dialog( 'option', 'title' , $('title').html());
     // Make sure this behavior is not processed more than once.
     if (!self.processed) {
@@ -28,6 +29,7 @@
       Drupal.jqui_dialogChild.handleOptions(settings);
       Drupal.jqui_dialogChild.recheckSize();
     }
+    self.pJQui_dialog.childLoaded(window);
   };
 
   Drupal.jqui_dialogChild.recheckSize = function () {

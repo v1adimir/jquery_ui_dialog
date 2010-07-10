@@ -5,4 +5,5 @@ description = A slim API to support jquery ui dialogs in Drupal. Just provides a
 package = WYSIWYG
 core = "6.x"
 dependencies[] = jquery_ui
+dependencies[] = jquery_update
 project = "jquery_ui_dialog"
