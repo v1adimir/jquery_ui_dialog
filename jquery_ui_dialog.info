@@ -1,4 +1,3 @@
-; $Id$
 
 name = JQuery UI Dialog API
 description = A slim API to support jquery ui dialogs in Drupal. Just provides an direct interface to the jquery-ui-dialog plugin 

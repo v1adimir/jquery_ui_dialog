@@ -1,4 +1,3 @@
-// $Id$
 (function ($) {
   Drupal.jqui_dialogChild = Drupal.jqui_dialogChild || {
     processed: false

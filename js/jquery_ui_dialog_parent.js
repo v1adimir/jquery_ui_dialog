@@ -1,4 +1,3 @@
-// $Id$
 (function ($) {
   Drupal.jqui_dialog = Drupal.jqui_dialog || {
     options: {},
